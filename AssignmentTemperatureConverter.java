@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AssignmentTemperatureConverter {
@@ -18,22 +20,30 @@ public class AssignmentTemperatureConverter {
             do{
                 if (choice.equals("1")) {
                     wrongchoice = false;
-                    System.out.println("Enter the temperature to convert:");
-                    Scanner scanner = new Scanner(System.in);
-                    double c = scanner.nextDouble();
-                    double f;
-                    f = (c * 9 / 5) + 32;
-                    System.out.println(c + "C ------------------> " + f + "F");
+                    try {
+                        System.out.println("Enter the temperature to convert:");
+                        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+                        double c = scanner.nextDouble();
+                        double f = (c * 9 / 5) + 32;
+                        System.out.println(c + "C ------------------> " + f + "F");
+                    }
+                     catch (InputMismatchException ex) {
+                        System.out.println("input is not with in double range "+ ex);
+                    }
                 }
                 //if the user chooses fahrenheit-celsius he must type 2
                 else if (choice.equals("2")) {
                     wrongchoice = false;
-                    System.out.println("Enter the temperature to convert:");
-                    Scanner scanner1 = new Scanner(System.in);
-                    double f = scanner1.nextDouble();
-                    double c;
-                    c = (f - 32) * 5 / 9;
-                    System.out.println(f + "F ------------------> " + c + "C");
+                    try {
+                        System.out.println("Enter the temperature to convert:");
+                        Scanner scanner1 = new Scanner(System.in).useLocale(Locale.US);
+                        double f = scanner1.nextDouble();
+                        double c = (f - 32) * 5 / 9;
+                        System.out.println(f + "F ------------------> " + c + "C");
+                    }
+                      catch (InputMismatchException ex) {
+                        System.out.println("input is not with in double range "+ ex);
+                    }
                 }
                 //if the user does not choose the correct number
                 else {
