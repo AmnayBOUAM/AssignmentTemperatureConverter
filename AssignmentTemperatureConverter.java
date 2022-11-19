@@ -1,5 +1,4 @@
 import java.util.InputMismatchException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class AssignmentTemperatureConverter {
@@ -22,7 +21,7 @@ public class AssignmentTemperatureConverter {
                     wrongchoice = false;
                     try {
                         System.out.println("Enter the temperature to convert:");
-                        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+                        Scanner scanner = new Scanner(System.in);
                         double c = scanner.nextDouble();
                         double f = (c * 9 / 5) + 32;
                         System.out.println(c + "C ------------------> " + f + "F");
@@ -36,7 +35,7 @@ public class AssignmentTemperatureConverter {
                     wrongchoice = false;
                     try {
                         System.out.println("Enter the temperature to convert:");
-                        Scanner scanner1 = new Scanner(System.in).useLocale(Locale.US);
+                        Scanner scanner1 = new Scanner(System.in);
                         double f = scanner1.nextDouble();
                         double c = (f - 32) * 5 / 9;
                         System.out.println(f + "F ------------------> " + c + "C");
